@@ -20,7 +20,17 @@ class HtmlGenerator
 	def index 
 		print_header
 		@result.each do |product|
-			puts product["name"]
+			price = format_price(product["price_in_cents"])
+			puts "<table>"
+			puts "<tr>"
+			puts "<td class='hide'>"
+			puts "<img class='image' src='#{product['image_thumb_url']}' alt='Image Unavailable'>"
+			puts "</td>"
+			puts "<td class='show inner'>"
+			puts "#{product['name']}<br><br>Price:&nbsp;$#{price}<br>Type:&nbsp;#{product['primary_category']}<br>Producer:&nbsp;#{product['producer_name']}"
+			puts "</td>"
+			puts "</tr>"
+			puts "</table>"
 		end
 		print_footer
 	end
@@ -33,34 +43,29 @@ class HtmlGenerator
 #name, price_in_cents, primary_category 
 #producer_name, image_thumb_url,
 
-	<table>
-		<tr>
-			<td>
 
-		
-		
-			</td>
-			</tr>
-</table>
 
 	end
 	
 	def print_header
 
-		puts '<!DOCTYPE html>'
+		puts "<!DOCTYPE html>"
 
-		puts '<html>'
-		puts '<head>'
-		puts '<LINK href="styles.css" rel="stylesheet" type="text/css">'
-		puts '<title> Drinks </title>'
-		puts '</head>'
+		puts "<html>"
+		puts "<head>"
+		puts "<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>"
+		puts "<link href='styles.css' rel='stylesheet' type='text/css'>"
+		puts "<title> Drinks </title>"
+		puts "</head>"
 
-		puts '<body>'
+		puts "<body>"
+		puts "<div id='container'>"
 	end
 	
 	def print_footer
-		puts '</body>'
-		puts '</html>'
+		puts "</div>"
+		puts "</body>"
+		puts "</html>"
 	end
 
 	def retrieve_data

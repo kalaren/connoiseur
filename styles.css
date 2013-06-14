@@ -1,7 +1,7 @@
 
 
 body {
-	font-family: helvetica, arial;
+	font-family: Raleway, arial;
 }
 
 .drinkname {
@@ -17,9 +17,9 @@ body {
 
 
 #container {
-	width: 900px;
+	width: 1000px;
 	background-color: orange;
-margin: 0px auto;
+	margin: 0px auto;
 }
 
 table {
@@ -28,9 +28,11 @@ table {
 	height: 200px;
 	border-spacing: 0px;
 	float: left;
-	
-	table-layout: fixed
+	margin-left: 25px;
+	margin-right: 25px;
+	table-layout: fixed;
 }
+
 
 tr {
 
@@ -41,6 +43,7 @@ word-wrap: break-word;
 }
 td.inner {
 	padding-left: 10px;
+	padding-right: 10px;
 }
 
 tr:hover > td.hide {
@@ -58,12 +61,6 @@ img {
 	width: 199px;
 	height: 190px;
 }
-
-.product:hover {
-	display: none;
-
-}
-
 .text-center {
 	text-align: center;
 }
