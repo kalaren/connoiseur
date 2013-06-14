@@ -30,8 +30,8 @@ class HtmlGenerator
 		puts @single["name"]
 		print_footer
 
-#name, price_in_cents, origin, 
-#producer_name, image_thumb_url, tertiary_category
+#name, price_in_cents, primary_category 
+#producer_name, image_thumb_url,
 
 	<table>
 		<tr>

@@ -23,9 +23,10 @@ margin: 0px auto;
 }
 
 table {
-	background-color: blue;
+	background-color: orange;
 	width: 200px;
 	height: 200px;
+	border-spacing: 0px;
 }
 
 tr {
@@ -35,14 +36,24 @@ tr {
 td {
 
 }
+td.inner {
+	padding-left: 10px;
+}
 
-tr.hide:hover > td {
+tr:hover > td.hide {
 	display: none;
 }
 
+tr:hover > td.show {
+	display: table-cell ;
+}
+tr > td.show {
+	display: none ;
+}
+
 img {
-	width: 200px;
-	height: 200px;
+	width: 199px;
+	height: 190px;
 }
 
 .product:hover {
