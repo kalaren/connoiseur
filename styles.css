@@ -60,6 +60,8 @@ tr > td.show {
 img {
 	width: 199px;
 	height: 190px;
+	background-image: url("http://cdn.gunaxin.com/wp-content/uploads/2010/02/Generic-Beer-225x300.jpg");
+	background-size: 200px 200px;
 }
 .text-center {
 	text-align: center;

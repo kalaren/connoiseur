@@ -27,7 +27,7 @@ class HtmlGenerator
 			puts "<img class='image' src='#{product['image_thumb_url']}' alt='Image Unavailable'>"
 			puts "</td>"
 			puts "<td class='show inner'>"
-			puts "#{product['name']}<br><br>Price:&nbsp;$#{price}<br>Type:&nbsp;#{product['primary_category']}<br>Producer:&nbsp;#{product['producer_name']}"
+			puts "#{product['total_package_units']}&nbsp;#{product['name']}<br><br>Price:&nbsp;$#{price}<br>Type:&nbsp;#{product['primary_category']}<br>Producer:&nbsp;#{product['producer_name']}"
 			puts "</td>"
 			puts "</tr>"
 			puts "</table>"
