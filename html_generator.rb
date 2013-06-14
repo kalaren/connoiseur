@@ -3,26 +3,32 @@ require 'open-uri'
 require 'uri'
 
 
-class ItemsController
+class HtmlGenerator
+
+	attr_accessor :id, :term
+
 #will require JSON and open-uri maybe 
 	
-	def initialize(args)
+	def initialize()
 		@url = "http://lcboapi.com/products"
-		@id = args[:id] || 0
-		@term = args[:term] || ""
+		@id = 0
+		@term = ""
 		@result = []
 		@single = {}
 	end
 
-	def index
+	def index 
+		print_header
 		@result.each do |product|
 			puts product["name"]
-	end
-		
+		end
+		print_footer
 	end
 	
 	def show
+		print_header
 		puts @single["name"]
+		print_footer
 	end
 	
 	def print_header
@@ -43,14 +49,13 @@ class ItemsController
 		puts '</html>'
 	end
 
-	def retrieve_data()
+	def retrieve_data
 		if @id != 0
 			non_parsed = open(@url + "/" + @id.to_s).read
 			parsed = JSON.parse(non_parsed) 
 			@single = parsed["result"]
 		elsif @term != ""
 			uri = URI.encode(@term)
-
 			non_parsed = open(@url + "?per_page=100" + "&q=" + uri).read
 			parsed = JSON.parse(non_parsed)
 			@result = parsed["result"]
@@ -58,7 +63,6 @@ class ItemsController
 			non_parsed = open(@url + "?per_page=100").read
 			parsed = JSON.parse(non_parsed)
 			@result = parsed["result"]
-		
 		end
 	end
 
@@ -67,6 +71,6 @@ class ItemsController
 
 end
 
-a = ItemsController.new(term: "Pink Grapefruit")
-a.retrieve_data
-a.index
+# a = HtmlGenerator.new(term: "Pink Grapefruit")
+# a.retrieve_data
+# a.index

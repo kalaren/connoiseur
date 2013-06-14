@@ -1,19 +1,23 @@
-require 'html_generator'
+require_relative 'html_generator'
 require 'open-uri'
 require 'uri'
 
+
+
 class Router
 
-	def initialize(url)
-
-		case url
+	def initialize(type)
+		gen = HtmlGenerator.new
+		case type
 		when 'index'
-			term = ARGV[1]						# => Go to the index page
-			puts "index"
+			gen.term = ARGV[1] if ARGV[1] != nil				
+			gen.retrieve_data			
+			gen.index
+
 		when 'show'
-			id = ARGV[1] 
-			puts id
-			puts "show"
+			gen.id = ARGV[1] if ARGV[1] != nil
+			gen.retrieve_data				
+			gen.show
 		end
 		
 	end
