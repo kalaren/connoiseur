@@ -1,3 +1,7 @@
+require 'html_generator'
+require 'open-uri'
+require 'uri'
+
 class Router
 
 	def initialize(url)
