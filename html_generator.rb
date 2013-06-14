@@ -1,12 +1,13 @@
 require 'JSON'
 require 'open-uri'
+require 'uri'
 
 
 class ItemsController
 #will require JSON and open-uri maybe 
 	
 	def initialize(args)
-		@url = "http://lcboapi.com/products/"
+		@url = "http://lcboapi.com/products"
 		@id = args[:id] || 0
 		@term = args[:term] || ""
 		@result = []
@@ -14,10 +15,14 @@ class ItemsController
 	end
 
 	def index
+		@result.each do |product|
+			puts product["name"]
+	end
+		
 	end
 	
 	def show
-
+		puts @single["name"]
 	end
 	
 	def print_header
@@ -40,14 +45,20 @@ class ItemsController
 
 	def retrieve_data()
 		if @id != 0
-			non_parsed = open(@url+@id.to_s).read
+			non_parsed = open(@url + "/" + @id.to_s).read
 			parsed = JSON.parse(non_parsed) 
 			@single = parsed["result"]
-		else
-			non_parsed = open(@url).read
+		elsif @term != ""
+			uri = URI.encode(@term)
+
+			non_parsed = open(@url + "?per_page=100" + "&q=" + uri).read
 			parsed = JSON.parse(non_parsed)
 			@result = parsed["result"]
-			puts @result
+		else
+			non_parsed = open(@url + "?per_page=100").read
+			parsed = JSON.parse(non_parsed)
+			@result = parsed["result"]
+		
 		end
 	end
 
@@ -56,4 +67,6 @@ class ItemsController
 
 end
 
-ItemsController.new(id: 0).retrieve_data()
+a = ItemsController.new(term: "Pink Grapefruit")
+a.retrieve_data
+a.index
