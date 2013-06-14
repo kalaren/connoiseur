@@ -27,6 +27,9 @@ table {
 	width: 200px;
 	height: 200px;
 	border-spacing: 0px;
+	float: left;
+	
+	table-layout: fixed
 }
 
 tr {
@@ -34,7 +37,7 @@ tr {
 }
 
 td {
-
+word-wrap: break-word;
 }
 td.inner {
 	padding-left: 10px;
@@ -59,4 +62,8 @@ img {
 .product:hover {
 	display: none;
 
+}
+
+.text-center {
+	text-align: center;
 }
