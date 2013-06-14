@@ -29,6 +29,20 @@ class HtmlGenerator
 		print_header
 		puts @single["name"]
 		print_footer
+
+#name, price_in_cents, origin, 
+#producer_name, image_thumb_url, tertiary_category
+
+	<table>
+		<tr>
+			<td>
+
+		
+		
+			</td>
+			</tr>
+</table>
+
 	end
 	
 	def print_header
@@ -66,10 +80,19 @@ class HtmlGenerator
 		end
 	end
 
-	def format_price(cents_string)
+	def format_price(cents_int)
+		return cents_int.to_s.insert(-3, ".")
 	end
 
 end
+
+
+
+
+
+
+
+
 
 # a = HtmlGenerator.new(term: "Pink Grapefruit")
 # a.retrieve_data

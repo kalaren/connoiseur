@@ -1,0 +1,51 @@
+
+
+body {
+	font-family: helvetica, arial;
+}
+
+.drinkname {
+	font-size: 30px;
+	font-family: helvetica, arial;
+}
+
+.column {
+	width: 300px;
+	margin: 0px auto;
+}
+
+
+
+#container {
+	width: 900px;
+	background-color: orange;
+margin: 0px auto;
+}
+
+table {
+	background-color: blue;
+	width: 200px;
+	height: 200px;
+}
+
+tr {
+
+}
+
+td {
+
+}
+
+tr.hide:hover > td {
+	display: none;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+}
+
+.product:hover {
+	display: none;
+
+}
