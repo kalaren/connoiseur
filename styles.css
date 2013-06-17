@@ -18,28 +18,29 @@ body {
 
 #container {
 	width: 1000px;
-	background-color: orange;
+	background-color: #A0D8A0;
 	margin: 0px auto;
 }
 
-table {
-	background-color: orange;
+table.list {
+	border: none;
 	width: 200px;
 	height: 200px;
-	border-spacing: 0px;
 	float: left;
 	margin-left: 25px;
 	margin-right: 25px;
 	table-layout: fixed;
+
 }
 
 
 tr {
-
+	border: none;
 }
 
 td {
-word-wrap: break-word;
+	border: none;
+	word-wrap: break-word;
 }
 td.inner {
 	padding-left: 10px;
@@ -51,18 +52,29 @@ tr:hover > td.hide {
 }
 
 tr:hover > td.show {
+	background-color: #A0D8A0;
 	display: table-cell ;
 }
 tr > td.show {
 	display: none ;
 }
 
-img {
+img.s-image {
 	width: 199px;
 	height: 190px;
-	background-image: url("http://cdn.gunaxin.com/wp-content/uploads/2010/02/Generic-Beer-225x300.jpg");
+	background-image: url("http://img.photobucket.com/albums/v289/niemoller/Dr%20Sodas/Generic-Beer-Cans-Self-Opening-10-1.jpg");
 	background-size: 200px 200px;
+	border: 0px;
 }
 .text-center {
 	text-align: center;
 }
+
+img.l-image {
+	width: 720px;
+	height: 720px;
+	background-image: url("http://img.photobucket.com/albums/v289/niemoller/Dr%20Sodas/Generic-Beer-Cans-Self-Opening-10-1.jpg");
+	background-size: 720px 720px;
+	border: 0px;
+}
+

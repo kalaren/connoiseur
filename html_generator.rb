@@ -21,23 +21,32 @@ class HtmlGenerator
 		print_header
 		@result.each do |product|
 			price = format_price(product["price_in_cents"])
-			puts "<table>"
-			puts "<tr>"
-			puts "<td class='hide'>"
-			puts "<img class='image' src='#{product['image_thumb_url']}' alt='Image Unavailable'>"
-			puts "</td>"
-			puts "<td class='show inner'>"
-			puts "#{product['total_package_units']}&nbsp;#{product['name']}<br><br>Price:&nbsp;$#{price}<br>Type:&nbsp;#{product['primary_category']}<br>Producer:&nbsp;#{product['producer_name']}"
-			puts "</td>"
-			puts "</tr>"
-			puts "</table>"
+			puts "			<table class='list'>"
+			puts "				<tr>"
+			puts "					<td class='hide'>"
+			puts "						<img class='s-image' src='#{product['image_thumb_url']}' alt='#{product['name']}'>"
+			puts "					</td>"
+			puts "					<td class='show inner'>"
+			puts "					#{product['total_package_units']}&nbsp;#{product['name']}<br><br>Price:&nbsp;$#{price}<br>Type:&nbsp;#{product['primary_category']}<br>Producer:&nbsp;#{product['producer_name']}"
+			puts "					</td>"
+			puts "				</tr>"
+			puts "			</table>"
 		end
 		print_footer
 	end
 	
 	def show
 		print_header
-		puts @single["name"]
+		price = format_price(@single["price_in_cents"])
+		puts "			<table>"
+		puts "				<tr>"
+		puts "					<td>"
+		puts "						<img class='l-image' src='#{@single['image_url']}' alt='#{@single['name']}'>"
+		puts "					</td>"
+		puts "					<td>"
+		puts "					<h1>#{@single['name']}</h1><br><br>Amount:&nbsp#{@single['total_package_units']}<br><br>Price:&nbsp;$#{price}<br><br>Type:&nbsp;#{@single['primary_category']}<br><br>Producer:&nbsp;#{@single['producer_name']}"
+		puts "					</td>"
+		puts "			</table>"
 		print_footer
 
 #name, price_in_cents, primary_category 
@@ -52,19 +61,19 @@ class HtmlGenerator
 		puts "<!DOCTYPE html>"
 
 		puts "<html>"
-		puts "<head>"
-		puts "<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>"
-		puts "<link href='styles.css' rel='stylesheet' type='text/css'>"
-		puts "<title> Drinks </title>"
-		puts "</head>"
+		puts "	<head>"
+		puts "		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>"
+		puts "		<link href='styles.css' rel='stylesheet' type='text/css'>"
+		puts "		<title> Drinks </title>"
+		puts "	</head>"
 
-		puts "<body>"
-		puts "<div id='container'>"
+		puts "	<body>"
+		puts "		<div id='container'>"
 	end
 	
 	def print_footer
-		puts "</div>"
-		puts "</body>"
+		puts "		</div>"
+		puts "	</body>"
 		puts "</html>"
 	end
 
